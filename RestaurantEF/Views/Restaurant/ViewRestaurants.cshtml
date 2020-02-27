@@ -1,0 +1,65 @@
+﻿
+@{
+    ViewBag.Title = "ViewRestaurants";
+}
+
+<h2>Restaurant Details using Viewbag</h2>
+<ul>
+    @foreach (RestaurantEntity.Restaurant restaurant in ViewBag.restaurants)
+    {
+        <li>@restaurant.Id</li>
+        <li>@restaurant.Name</li>
+        <li>@restaurant.Description</li>
+    }
+</ul>
+<h2>
+    Restaurant Details using ViewData
+</h2>
+<table>
+    <tr>
+        <td>Restaurant Id</td>
+        <td>Restaurant Name</td>
+        <td>Restaurant Description</td>
+    </tr>
+    @foreach (RestaurantEntity.Restaurant restaurant in (List<RestaurantEntity.Restaurant>)ViewData["Restaurants"])
+    {
+        <tr>
+            <td>
+                @restaurant.Id
+            </td>
+            <td>
+                @restaurant.Name
+            </td>
+            <td>
+                @restaurant.Description
+            </td>
+        </tr>
+
+    }
+</table>
+<h2>
+    Restaurant Details using TempData
+</h2>
+<table>
+    <tr>
+        <td>Restaurant Id</td>
+        <td>Restaurant Name</td>
+        <td>Restaurant Description</td>
+    </tr>
+    @foreach (RestaurantEntity.Restaurant restaurant in (List<RestaurantEntity.Restaurant>)TempData["Restaurants"])
+    {
+        <tr>
+            <td>
+                @restaurant.Id
+            </td>
+            <td>
+                @restaurant.Name
+            </td>
+            <td>
+                @restaurant.Description
+            </td>
+        </tr>
+
+    }
+</table>
+

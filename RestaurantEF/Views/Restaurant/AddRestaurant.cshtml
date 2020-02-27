@@ -1,0 +1,48 @@
+﻿@model RestaurantEntity.Restaurant
+
+@{
+    ViewBag.Title = "AddRestaurant";
+}
+
+<h2>Add Restaurant</h2>
+
+@using (Html.BeginForm("AddRestaurant", "Restaurant", FormMethod.Post))
+{
+
+    <table>
+        <tr>
+            <td>
+                @Html.Label("Restaurant Id")
+            </td>
+            <td>
+                @Html.TextBoxFor(Model => Model.Id)
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.Label("Restaurant Name")
+            </td>
+            <td>
+                @Html.TextBoxFor(Model => Model.Name)
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.Label("Restaurant Description")
+            </td>
+            <td>
+                @Html.TextBoxFor(Model => Model.Description)
+            </td>
+        </tr>
+        <tr>
+
+            <td>@Html.ActionLink("Back to List", "Index")</td>
+        </tr>
+        <tr>
+            <td>
+                <input type="submit"/>
+            </td>
+        </tr>
+    </table>
+
+}

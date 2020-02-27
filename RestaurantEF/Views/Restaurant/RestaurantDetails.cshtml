@@ -1,0 +1,36 @@
+﻿@model IEnumerable<RestaurantEntity.Restaurant>
+
+@{
+    ViewBag.Title = "RestaurantDetails";
+}
+@Html.ActionLink("Add New Restaurant", "AddRestaurant")<br/>
+
+<h2>RestaurantDetails</h2>
+
+<table>
+    <tr>
+        <th>Restaurant Id</th>
+        <th>Restaurant Name</th>
+        <th>Restaurant Description</th>
+    </tr>
+    @foreach (var restaurant in Model)
+    {
+        <tr>
+            <td>
+                @restaurant.Id
+            </td>
+            <td>
+                @restaurant.Name
+            </td>
+            <td>
+                @restaurant.Description
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = restaurant.Id })
+                @Html.ActionLink("Delete", "Delete", new { id = restaurant.Id })
+
+            </td>
+        </tr>
+
+    }
+</table>

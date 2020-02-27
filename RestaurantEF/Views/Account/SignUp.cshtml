@@ -1,0 +1,103 @@
+﻿@model RestaurantEntity.Customer
+
+@{
+    ViewBag.Title = "SignUp";
+}
+
+<h2>Sign Up</h2>
+
+@using (Html.BeginForm("SignUp", "Account", FormMethod.Post))
+{
+    <table>
+        <tr>
+            <td>
+                @Html.LabelFor(Model => Model.Id)
+            </td>
+            <td>
+                @Html.EditorFor(Model => Model.Id)
+                @Html.ValidationMessageFor(model => model.Id, "", new { @class = "text-danger" })
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.LabelFor(Model => Model.Name)
+            </td>
+            <td>
+                @Html.TextBoxFor(Model => Model.Name)
+                @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.LabelFor(Model => Model.Password)
+            </td>
+            <td>
+                @Html.PasswordFor(Model => Model.Password)
+                @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.Label("Confirm Password")
+            </td>
+            <td>
+                @Html.PasswordFor(Model => Model.ConfirmPassword)
+                @Html.ValidationMessageFor(model => model.ConfirmPassword, "", new { @class = "text-danger" })
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.LabelFor(Model => Model.Email)
+            </td>
+            <td>
+                @Html.TextBoxFor(Model => Model.Email)
+                @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.LabelFor(Model => Model.Gender)
+            </td>
+            <td>
+                @Html.RadioButtonFor(Model => Model.Gender, "Male")Male
+                @Html.RadioButtonFor(Model => Model.Gender, "Female")Female
+                @Html.ValidationMessageFor(model => model.Gender, "", new { @class = "text-danger" })
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.LabelFor(Model => Model.Address)
+            </td>
+            <td>
+                @Html.TextBoxFor(Model => Model.Address)
+                @Html.ValidationMessageFor(model => model.Address, "", new { @class = "text-danger" })
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.LabelFor(Model => Model.City)
+            </td>
+            <td>
+                @Html.EnumDropDownListFor(Model => Model.City, "Select City")
+                @Html.ValidationMessageFor(model => model.City, "", new { @class = "text-danger" })
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.LabelFor(Model => Model.PhoneNumber)
+            </td>
+            <td>
+                @Html.TextBoxFor(Model => Model.PhoneNumber)
+                @Html.ValidationMessageFor(model => model.PhoneNumber, "", new { @class = "text-danger" })
+            </td>
+        </tr>
+        <tr>
+            <td>@Html.ActionLink("Back to List", "Index")</td>
+        </tr>
+        <tr>
+            <td>
+                <input type="submit" />
+            </td>
+        </tr>
+    </table>
+}

@@ -1,0 +1,45 @@
+﻿@model RestaurantEntity.Customer
+
+@{
+    ViewBag.Title = "Login";
+}
+
+<h2>Login</h2>
+
+
+@using (Html.BeginForm("Login", "Account", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+    <table>
+        <tr>
+            <td>
+                @Html.LabelFor(Model => Model.Name)
+            </td>
+            <td>
+                @Html.TextBoxFor(Model => Model.Name)
+                @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.LabelFor(Model => Model.Password)
+            </td>
+            <td>
+                @Html.PasswordFor(Model => Model.Password)
+                @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+            </td>
+        </tr>
+       
+        <tr>
+            <td>
+               
+                <input type="submit" />
+            </td>
+        </tr>
+    </table>
+    @*<footer>
+        <div>
+            @Html.Partial("_Partial");
+        </div>
+    </footer>*@
+}
