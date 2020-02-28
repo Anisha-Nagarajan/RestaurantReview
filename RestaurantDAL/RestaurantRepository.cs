@@ -28,6 +28,7 @@ namespace RestaurantDAL
             updatedRestaurant.Id = restaurant.Id;
             updatedRestaurant.Name = restaurant.Name;
             updatedRestaurant.Description = restaurant.Description;
+            restaurantDb.SaveChanges();
         }
         public static void Delete(int resId)
         {
@@ -35,6 +36,7 @@ namespace RestaurantDAL
             if (restaurant != null)
             {
                 restaurantDb.Restaurants.Remove(restaurant);
+                restaurantDb.SaveChanges();
             }
         }
     }

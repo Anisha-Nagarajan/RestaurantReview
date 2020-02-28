@@ -17,6 +17,7 @@ namespace RestaurantEF.Controllers
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
+    //    [Authorize]
         public ActionResult Login(Customer customer)
         {
             bool loginStatus = CustomerRepository.CheckLogin(customer);
@@ -30,7 +31,7 @@ namespace RestaurantEF.Controllers
             return View();
         }
         [HttpPost]
-
+        [HandleError(View="Error.cshtml")]
         public ActionResult SignUp(Customer customer)
         {
             if (ModelState.IsValid)

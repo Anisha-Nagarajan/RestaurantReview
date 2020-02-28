@@ -175,6 +175,7 @@
     <Content Include="Views\Restaurant\ViewRestaurants.cshtml" />
     <Content Include="Views\Restaurant\EditRestaurant.cshtml" />
     <Content Include="Views\Restaurant\RestaurantDetails.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
