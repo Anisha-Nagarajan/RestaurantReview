@@ -7,7 +7,7 @@ namespace RestaurantDAL
     public class RestaurantRepository
     {
        public static RestaurantDbContext restaurantDb = new RestaurantDbContext();
-        public static IEnumerable<Restaurant> CreateRestaurantDb()
+        public static IEnumerable<Restaurant> RestaurantDetails()
         {
            RestaurantDbContext restaurantDb = new RestaurantDbContext();
             return restaurantDb.Restaurants.ToList();
@@ -37,7 +37,7 @@ namespace RestaurantDAL
             {
                 restaurantDb.Restaurants.Remove(restaurant);
                 restaurantDb.SaveChanges();
-            }
+            } 
         }
     }
 }

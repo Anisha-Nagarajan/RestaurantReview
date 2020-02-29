@@ -18,6 +18,7 @@ namespace RestaurantDAL
             restaurantDb.Customers.Add(customer);
             restaurantDb.SaveChanges();
         }
+     
         public static bool CheckLogin(Customer customer)
         {
             bool loginStatus = false;

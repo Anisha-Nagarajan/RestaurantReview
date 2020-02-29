@@ -1,4 +1,4 @@
-﻿@model RestaurantEntity.Customer
+﻿@model RestaurantEF.ViewModels.CustomerViewModel
 
 @{
     ViewBag.Title = "Login";
@@ -29,17 +29,17 @@
                 @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
             </td>
         </tr>
-       
+
         <tr>
             <td>
-               
+
                 <input type="submit" />
             </td>
         </tr>
     </table>
     @*<footer>
-        <div>
-            @Html.Partial("_Partial");
-        </div>
-    </footer>*@
+            <div>
+                @Html.Partial("_Partial");
+            </div>
+        </footer>*@
 }

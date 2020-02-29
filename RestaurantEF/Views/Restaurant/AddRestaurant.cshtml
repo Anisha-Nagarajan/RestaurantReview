@@ -1,10 +1,11 @@
-﻿@model RestaurantEntity.Restaurant
+﻿@model RestaurantEF.ViewModels.RestaurantViewModel
 
 @{
     ViewBag.Title = "AddRestaurant";
 }
 
-<h2>Add Restaurant</h2>
+<h2>AddRestaurant</h2>
+
 
 @using (Html.BeginForm("AddRestaurant", "Restaurant", FormMethod.Post))
 {
@@ -40,7 +41,7 @@
         </tr>
         <tr>
             <td>
-                <input type="submit"/>
+                <input type="submit" />
             </td>
         </tr>
     </table>

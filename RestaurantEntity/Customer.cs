@@ -1,7 +1,9 @@
-﻿namespace RestaurantEntity
+﻿
+namespace RestaurantEntity
 {
    public class Customer
     {
+       
         public enum CustomerCity
         {
 

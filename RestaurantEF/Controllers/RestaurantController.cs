@@ -1,8 +1,9 @@
-﻿
-using System.Web.Mvc;
+﻿using System.Web.Mvc;
 using RestaurantDAL;
 using RestaurantEntity;
 using System.Collections.Generic;
+using RestaurantEF.ViewModels;
+using RestaurantBL;
 
 namespace RestaurantEF.Controllers
 {
@@ -11,8 +12,8 @@ namespace RestaurantEF.Controllers
         // GET: Restaurant
         public ActionResult Index()
         {
-            IEnumerable<Restaurant> RestaurantDetails = RestaurantRepository.CreateRestaurantDb();
-            return View("RestaurantDetails", RestaurantDetails);
+            IEnumerable<Restaurant> restaurantDetails = RestaurantBusinessLogic.RestaurantDetails();
+            return View("RestaurantDetails", restaurantDetails);
             
         }
         public ActionResult AddRestaurant()
@@ -20,12 +21,16 @@ namespace RestaurantEF.Controllers
             return View();
         }
         [HttpPost]
-        public ActionResult AddRestaurant(Restaurant restaurant)
+        public ActionResult AddRestaurant(RestaurantViewModel restaurantVm)
         {
             if (ModelState.IsValid)
             {
-                RestaurantRepository.CreateRestaurantDb();
-                RestaurantRepository.AddRestaurants(restaurant);
+                //RestaurantRepository.CreateRestaurantDb();
+                Restaurant restaurant = new Restaurant();
+                restaurant.Id = restaurantVm.Id;
+                restaurant.Name = restaurantVm.Name;
+                restaurant.Description = restaurantVm.Description;
+                RestaurantBusinessLogic.RestaurantData(restaurant);
                 return RedirectToAction("Index");
             }
             return View();
@@ -33,22 +38,26 @@ namespace RestaurantEF.Controllers
         }
         public ActionResult ViewRestaurants()
         {
-            IEnumerable<Restaurant> RestaurantDetails = RestaurantRepository.CreateRestaurantDb();
-            ViewBag.restaurants = RestaurantDetails;
-            ViewData["Restaurants"] = RestaurantDetails;
-            TempData["Restaurants"] = RestaurantDetails;
+            IEnumerable<Restaurant> restaurantDetails = RestaurantBusinessLogic.RestaurantDetails();
+            ViewBag.restaurants = restaurantDetails;
+            ViewData["Restaurants"] = restaurantDetails;
+            TempData["Restaurants"] = restaurantDetails;
             return View();
         }
         public ActionResult Edit(int id)
         {
-            Restaurant restaurant = RestaurantRepository.GetRestaurantById(id);
+            Restaurant restaurant = RestaurantBusinessLogic.RestaurantById(id);
             return View(restaurant);
         }
 
         [HttpPost]
-        public ActionResult Update(Restaurant restaurant)
+        public ActionResult Update(RestaurantViewModel restaurantVm)
         {
-            RestaurantRepository.Update(restaurant);
+            Restaurant restaurant = new Restaurant();
+            restaurant.Id = restaurantVm.Id;
+            restaurant.Name = restaurantVm.Name;
+            restaurant.Description = restaurantVm.Description;
+            RestaurantBusinessLogic.UpdateRestaurant(restaurant);
          //   TempData["Message"] = "Updated Succesfully";
             return RedirectToAction("Index");
 
