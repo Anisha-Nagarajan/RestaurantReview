@@ -1,5 +1,4 @@
 ﻿using System.Web.Mvc;
-using RestaurantDAL;
 using RestaurantEntity;
 using System.Collections.Generic;
 using RestaurantEF.ViewModels;
@@ -30,7 +29,7 @@ namespace RestaurantEF.Controllers
                 restaurant.Id = restaurantVm.Id;
                 restaurant.Name = restaurantVm.Name;
                 restaurant.Description = restaurantVm.Description;
-                RestaurantBusinessLogic.RestaurantData(restaurant);
+                RestaurantBusinessLogic.AddRestaurant (restaurant);
                 return RedirectToAction("Index");
             }
             return View();
@@ -65,7 +64,7 @@ namespace RestaurantEF.Controllers
 
         public ActionResult Delete(int id)
         {
-            RestaurantRepository.Delete(id);
+            RestaurantBusinessLogic.DeleteRestaurant(id);
            // TempData["Message"] = "Deleted Succesfully";
             return RedirectToAction("Index");
         }

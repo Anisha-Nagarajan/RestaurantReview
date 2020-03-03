@@ -7,32 +7,43 @@ namespace RestaurantDAL
 {
    public class CustomerRepository
     {
+       
         public static IEnumerable<Customer> CreateCustomerDb()
         {
-            RestaurantDbContext restaurantDb = new RestaurantDbContext();
-            return restaurantDb.Customers.ToList();
+            IEnumerable<Customer> customerDetails;
+            using (var restaurantDb = new RestaurantDbContext())
+            {
+                customerDetails= restaurantDb.Customers.ToList();
+            }
+            return customerDetails;
         }
         public static void AddCustomer(Customer customer)
         {
-            RestaurantDbContext restaurantDb = new RestaurantDbContext();
-            restaurantDb.Customers.Add(customer);
-            restaurantDb.SaveChanges();
+            using (var restaurantDb = new RestaurantDbContext())
+            {
+                restaurantDb.Customers.Add(customer);
+                restaurantDb.SaveChanges();
+            }
         }
      
-        public static bool CheckLogin(Customer customer)
+        public static string CheckLogin(Customer customer)
         {
-            bool loginStatus = false;
-            RestaurantDbContext restaurantDb = new RestaurantDbContext();
-            foreach (var cus in restaurantDb.Customers)
+            // bool loginStatus = false;
+            string userRole = "";
+            using (var restaurantDb = new RestaurantDbContext())
             {
-                if ((cus.Name.Equals(customer.Name)) && (cus.Password.Equals(customer.Password)))
+                
+                foreach (var cus in restaurantDb.Customers)
                 {
-                    loginStatus = true;
-                    break;
+                    if ((cus.Name.Equals(customer.Name)) && (cus.Password.Equals(customer.Password)))
+                    {
+                        userRole = cus.Role;
+                        //loginStatus = true;
+                        break;
+                    }
                 }
             }
-
-            return loginStatus;
+            return userRole;
         }
     }
 }

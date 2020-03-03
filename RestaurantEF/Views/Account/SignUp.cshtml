@@ -9,22 +9,22 @@
 @using (Html.BeginForm("SignUp", "Account", FormMethod.Post))
 {
     <table>
-        <tr>
+        @*<tr>
             <td>
                 @Html.LabelFor(Model => Model.Id)
             </td>
             <td>
                 @Html.EditorFor(Model => Model.Id)
-                @Html.ValidationMessageFor(model => model.Id, "", new { @class = "text-danger" })
+                @Html.ValidationMessageFor(model => model.Id, "", new { @style = "color:red" })
             </td>
-        </tr>
+        </tr>*@
         <tr>
             <td>
-                @Html.LabelFor(Model => Model.Name)
+                @Html.DisplayNameFor(Model => Model.Name)
             </td>
             <td>
                 @Html.TextBoxFor(Model => Model.Name)
-                @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+                @Html.ValidationMessageFor(model => model.Name, "", new { @style = "color:red" })
             </td>
         </tr>
         <tr>
@@ -33,25 +33,25 @@
             </td>
             <td>
                 @Html.PasswordFor(Model => Model.Password)
-                @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+                @Html.ValidationMessageFor(model => model.Password, "", new { @style = "color:red" })
             </td>
         </tr>
         <tr>
             <td>
-                @Html.Label("Confirm Password")
+                @Html.DisplayNameFor(Model => Model.ConfirmPassword)
             </td>
             <td>
                 @Html.PasswordFor(Model => Model.ConfirmPassword)
-                @Html.ValidationMessageFor(model => model.ConfirmPassword, "", new { @class = "text-danger" })
+                @Html.ValidationMessageFor(model => model.ConfirmPassword, "", new { @style="color:red" })
             </td>
         </tr>
         <tr>
             <td>
-                @Html.LabelFor(Model => Model.Email)
+                @Html.DisplayNameFor(Model => Model.Email)
             </td>
             <td>
                 @Html.TextBoxFor(Model => Model.Email)
-                @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+                @Html.ValidationMessageFor(model => model.Email, "", new { @style = "color:red" })
             </td>
         </tr>
         <tr>
@@ -61,7 +61,7 @@
             <td>
                 @Html.RadioButtonFor(Model => Model.Gender, "Male")Male
                 @Html.RadioButtonFor(Model => Model.Gender, "Female")Female
-                @Html.ValidationMessageFor(model => model.Gender, "", new { @class = "text-danger" })
+                @Html.ValidationMessageFor(model => model.Gender, "", new { @style = "color:red" })
             </td>
         </tr>
         <tr>
@@ -70,7 +70,7 @@
             </td>
             <td>
                 @Html.TextBoxFor(Model => Model.Address)
-                @Html.ValidationMessageFor(model => model.Address, "", new { @class = "text-danger" })
+                @Html.ValidationMessageFor(model => model.Address, "", new { @style = "color:red" })
             </td>
         </tr>
         <tr>
@@ -79,20 +79,30 @@
             </td>
             <td>
                 @Html.EnumDropDownListFor(Model => Model.City, "Select City")
-                @Html.ValidationMessageFor(model => model.City, "", new { @class = "text-danger" })
+                @Html.ValidationMessageFor(model => model.City, "", new { @style="color:red" })
             </td>
         </tr>
         <tr>
             <td>
-                @Html.LabelFor(Model => Model.PhoneNumber)
+                @Html.DisplayNameFor(Model => Model.PhoneNumber)
             </td>
             <td>
                 @Html.TextBoxFor(Model => Model.PhoneNumber)
-                @Html.ValidationMessageFor(model => model.PhoneNumber, "", new { @class = "text-danger" })
+                @Html.ValidationMessageFor(model => model.PhoneNumber, "", new { @style = "color:red" })
             </td>
         </tr>
         <tr>
-            <td>@Html.ActionLink("Back to List", "Index")</td>
+            <td>
+                @Html.LabelFor(Model => Model.Role)
+            </td>
+            <td>
+                @Html.RadioButtonFor(Model => Model.Role, "Restaurant Owner")Restaurant Owner
+                @Html.RadioButtonFor(Model => Model.Role, "Customer")Customer
+                @Html.ValidationMessageFor(model => model.Role, "", new { @style = "color:red" })
+            </td>
+        </tr>
+        <tr>
+            <td>@Html.ActionLink("Back to List", "Index","Home")</td>
         </tr>
         <tr>
             <td>

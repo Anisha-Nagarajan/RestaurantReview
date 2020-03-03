@@ -1,17 +1,13 @@
 ﻿using RestaurantDAL;
 using RestaurantEntity;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace RestaurantBL
 {
-   public class RestaurantBusinessLogic
+    public class RestaurantBusinessLogic
     {
         RestaurantRepository restaurantRepository = new RestaurantRepository();
-        public static void RestaurantData(Restaurant restaurant)
+        public static void AddRestaurant(Restaurant restaurant)
         {
             RestaurantRepository.AddRestaurants(restaurant);
         }
@@ -28,6 +24,10 @@ namespace RestaurantBL
         public static void UpdateRestaurant(Restaurant restaurant)
         {
             RestaurantRepository.Update(restaurant);
+        }
+        public static void DeleteRestaurant(int restaurantId)
+        {
+            RestaurantRepository.Delete(restaurantId);
         }
     }
 }

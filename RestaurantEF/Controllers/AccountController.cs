@@ -1,9 +1,6 @@
 ﻿using RestaurantEntity;
 using System.Web.Mvc;
-using RestaurantDAL;
 using RestaurantEF.ViewModels;
-using static RestaurantEntity.Customer;
-using System;
 using RestaurantBL;
 
 namespace RestaurantEF.Controllers
@@ -22,16 +19,20 @@ namespace RestaurantEF.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
     //    [Authorize]
-        public ActionResult Login(CustomerViewModel customerVm)
+        public ActionResult Login(LoginViewModel customerVm)
         {
             Customer customer = new Customer();
             customer.Name = customerVm.Name;
             customer.Password = customerVm.Password;
-            bool loginStatus = CustomerBusinessLogic.LoginData(customer);
-            if (loginStatus)
-                return RedirectToAction("Index", "Restaurant");
-
-            return View();
+          
+            string userRole = CustomerBusinessLogic.LoginData(customer);
+           
+                if (userRole.Equals("Customer"))
+                    return RedirectToAction("ViewRestaurants", "Restaurant");
+                else if(userRole.Equals("Restaurant Owner"))
+                    return RedirectToAction("Index", "Home");
+                else
+                    return View();
         }
         public ActionResult SignUp()
         {
@@ -47,12 +48,13 @@ namespace RestaurantEF.Controllers
                 customer.Id = customerVm.Id;
                 customer.Name = customerVm.Name;
                 customer.Password = customerVm.Password;
-                customer.ConfirmPassword = customerVm.ConfirmPassword;
+                //customer.ConfirmPassword = customerVm.ConfirmPassword;
                 customer.Email = customerVm.Email;
                 customer.Gender = customerVm.Gender;
                 customer.Address = customerVm.ConfirmPassword;
-                customer.City = (CustomerCity)Enum.ToObject(typeof(CustomerCity),customerVm.City);
+                customer.City = customerVm.City.ToString();
                 customer.PhoneNumber = customerVm.PhoneNumber;
+                customer.Role = customerVm.Role;
                 CustomerBusinessLogic.SignUpData(customer);
              
                  return RedirectToAction("Login");

@@ -1,0 +1,102 @@
+﻿@model RestaurantEF.ViewModels.CustomerFeedbackViewModel
+
+@{
+    ViewBag.Title = "AddFeedback";
+}
+
+<h2>AddFeedback</h2>
+
+@using (Html.BeginForm("AddFeedback", "CustomerFeedback", FormMethod.Post))
+{
+    <table>
+        <tr>
+            <td>
+                @Html.DisplayNameFor(Model => Model.RestaurantName)
+            </td>
+            <td>
+                @Html.TextBoxFor(Model => Model.RestaurantName )
+                @Html.ValidationMessageFor(model => model.RestaurantName,"", new { @style = "color:red" })
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.DisplayNameFor(Model => Model.OverallServiceQuality)
+            </td>
+            <td>
+                @Html.RadioButtonFor(Model => Model.OverallServiceQuality, "Excellent")Excellent
+                @Html.RadioButtonFor(Model => Model.OverallServiceQuality, "Good")Good
+                @Html.RadioButtonFor(Model => Model.OverallServiceQuality, "Average")Average
+                @Html.RadioButtonFor(Model => Model.OverallServiceQuality, "Dissatisfied")Dissatisfied
+                @Html.ValidationMessageFor(model => model.OverallServiceQuality, "", new { @style = "color:red" })
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.LabelFor(Model => Model.Cleanliness)
+            </td>
+            <td>
+            @Html.RadioButtonFor(Model => Model.Cleanliness, "Excellent")Excellent
+            @Html.RadioButtonFor(Model => Model.Cleanliness, "Good")Good
+            @Html.RadioButtonFor(Model => Model.Cleanliness, "Average")Average
+            @Html.RadioButtonFor(Model => Model.Cleanliness, "Dissatisfied")Dissatisfied
+            @Html.ValidationMessageFor(model => model.Cleanliness, "", new { @style = "color:red" })
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.DisplayNameFor(Model => Model.OrderAccuracy)
+            </td>
+            <td>
+                @Html.RadioButtonFor(Model => Model.OrderAccuracy, "Excellent")Excellent
+                @Html.RadioButtonFor(Model => Model.OrderAccuracy, "Good")Good
+                @Html.RadioButtonFor(Model => Model.OrderAccuracy, "Average")Average
+                @Html.RadioButtonFor(Model => Model.OrderAccuracy, "Dissatisfied")Dissatisfied
+                @Html.ValidationMessageFor(model => model.OrderAccuracy, "", new { @style = "color:red" })
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.DisplayNameFor(Model => Model.SpeedOfService)
+            </td>
+            <td>
+                @Html.RadioButtonFor(Model => Model.SpeedOfService, "Excellent")Excellent
+                @Html.RadioButtonFor(Model => Model.SpeedOfService, "Good")Good
+                @Html.RadioButtonFor(Model => Model.SpeedOfService, "Average")Average
+                @Html.RadioButtonFor(Model => Model.SpeedOfService, "Dissatisfied")Dissatisfied
+                @Html.ValidationMessageFor(model => model.SpeedOfService, "", new { @style = "color:red" })
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.LabelFor(Model => Model.Price)
+            </td>
+            <td>
+                @Html.RadioButtonFor(Model => Model.Price, "Excellent")Excellent
+                @Html.RadioButtonFor(Model => Model.Price, "Good")Good
+                @Html.RadioButtonFor(Model => Model.Price, "Average")Average
+                @Html.RadioButtonFor(Model => Model.Price, "Dissatisfied")Dissatisfied
+                @Html.ValidationMessageFor(model => model.Price, "", new { @style = "color:red" })
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.DisplayNameFor(Model => Model.OverallExperience)
+            </td>
+            <td>
+                @Html.RadioButtonFor(Model => Model.OverallExperience, "Excellent")Excellent
+                @Html.RadioButtonFor(Model => Model.OverallExperience, "Good")Good
+                @Html.RadioButtonFor(Model => Model.OverallExperience, "Average")Average
+                @Html.RadioButtonFor(Model => Model.OverallExperience, "Dissatisfied")Dissatisfied
+                @Html.ValidationMessageFor(model => model.OverallExperience, "", new { @style = "color:red" })
+            </td>
+        </tr>
+        <tr>
+            <td>@Html.ActionLink("Back to List", "Index", "Home")</td>
+        </tr>
+        <tr>
+            <td>
+                <input type="submit" />
+            </td>
+        </tr>
+    </table>
+}

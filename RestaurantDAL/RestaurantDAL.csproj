@@ -52,7 +52,25 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FeedbackRepository.cs" />
     <Compile Include="CustomerRepository.cs" />
+    <Compile Include="Migrations\202003030829596_InitialCreate.cs" />
+    <Compile Include="Migrations\202003030829596_InitialCreate.designer.cs">
+      <DependentUpon>202003030829596_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202003030910443_Restaurant.cs" />
+    <Compile Include="Migrations\202003030910443_Restaurant.designer.cs">
+      <DependentUpon>202003030910443_Restaurant.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202003030920497_dropdown.cs" />
+    <Compile Include="Migrations\202003030920497_dropdown.designer.cs">
+      <DependentUpon>202003030920497_dropdown.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202003031127496_login.cs" />
+    <Compile Include="Migrations\202003031127496_login.designer.cs">
+      <DependentUpon>202003031127496_login.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="RestaurantRepository.cs" />
     <Compile Include="RestaurantDbContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -66,6 +84,23 @@
       <Project>{21583A9D-FD68-4656-9BB5-DCE80E074B58}</Project>
       <Name>RestaurantEntity</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Site.css" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\202003030829596_InitialCreate.resx">
+      <DependentUpon>202003030829596_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202003030910443_Restaurant.resx">
+      <DependentUpon>202003030910443_Restaurant.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202003030920497_dropdown.resx">
+      <DependentUpon>202003030920497_dropdown.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202003031127496_login.resx">
+      <DependentUpon>202003031127496_login.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

@@ -1,4 +1,4 @@
-﻿@model RestaurantEF.ViewModels.CustomerViewModel
+﻿@model RestaurantEF.ViewModels.LoginViewModel
 
 @{
     ViewBag.Title = "Login";
@@ -13,11 +13,11 @@
     <table>
         <tr>
             <td>
-                @Html.LabelFor(Model => Model.Name)
+                @Html.DisplayNameFor(Model => Model.Name)
             </td>
             <td>
                 @Html.TextBoxFor(Model => Model.Name)
-                @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+                @Html.ValidationMessageFor(model => model.Name, "", new { @style = "color:red" })
             </td>
         </tr>
         <tr>
@@ -26,7 +26,7 @@
             </td>
             <td>
                 @Html.PasswordFor(Model => Model.Password)
-                @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+                @Html.ValidationMessageFor(model => model.Password, "", new { @style = "color:red" })
             </td>
         </tr>
 

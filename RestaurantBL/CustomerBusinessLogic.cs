@@ -5,11 +5,14 @@ namespace RestaurantBL
 {
     public class CustomerBusinessLogic
     {
+
         public CustomerRepository customerRepository = new CustomerRepository();
-        public static bool LoginData(Customer customer)
+        public static string LoginData(Customer customer)
         {
-            bool loginStatus = CustomerRepository.CheckLogin(customer);
-            return loginStatus;
+
+            string userRole = CustomerRepository.CheckLogin(customer);
+
+            return userRole;
         }
         public static void SignUpData(Customer customer)
         {

@@ -13,26 +13,29 @@
     <table>
         <tr>
             <td>
-                @Html.Label("Restaurant Id")
+                @Html.DisplayNameFor(Model => Model.Id)
             </td>
             <td>
                 @Html.TextBoxFor(Model => Model.Id)
+                @Html.ValidationMessageFor(model => model.Id, "", new { @style = "color:red" })
             </td>
         </tr>
         <tr>
             <td>
-                @Html.Label("Restaurant Name")
+                @Html.DisplayNameFor(Model => Model.Name)
             </td>
             <td>
                 @Html.TextBoxFor(Model => Model.Name)
+                @Html.ValidationMessageFor(model => model.Name, "", new { @style = "color:  " })
             </td>
         </tr>
         <tr>
             <td>
-                @Html.Label("Restaurant Description")
+                @Html.LabelFor(Model => Model.Description)
             </td>
             <td>
                 @Html.TextBoxFor(Model => Model.Description)
+                @Html.ValidationMessageFor(model => model.Description, "", new { @style = "color:red" })
             </td>
         </tr>
         <tr>
