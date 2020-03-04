@@ -13,7 +13,7 @@ namespace RestaurantEntity
         public int Id { get; set; }
         [Required(ErrorMessage = "Name is Required. It cannot be empty")]
        
-        [StringLength(30, ErrorMessage = "The Name must contain a maximum of 30 characters", MinimumLength = 4)]
+        [StringLength(30, ErrorMessage = "The Name must contain a maximum of 30 characters", MinimumLength = 3)]
         public string Name { get; set; }
         [Required(ErrorMessage = "Password is Required. It cannot be empty")]
        

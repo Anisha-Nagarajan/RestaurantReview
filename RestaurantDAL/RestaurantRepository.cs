@@ -38,25 +38,27 @@ namespace RestaurantDAL
         {
             using (var restaurantDb = new RestaurantDbContext())
             {
+                
                 Restaurant updatedRestaurant = restaurantDb.Restaurants.FirstOrDefault(res => res.Id == restaurant.Id);
                 updatedRestaurant.Id = restaurant.Id;
                 updatedRestaurant.Name = restaurant.Name;
                 updatedRestaurant.Description = restaurant.Description;
                 restaurantDb.SaveChanges();
-            } 
+            }  
         }
         public static void Delete(int resId)
         {
-            
-            Restaurant restaurant = GetRestaurantById(resId);
-            if (restaurant != null)
+            using (var restaurantDb = new RestaurantDbContext())
             {
-                using (var restaurantDb = new RestaurantDbContext())
+                Restaurant restaurant = GetRestaurantById(resId);
+                if (restaurant != null)
                 {
+                    restaurantDb.Restaurants.Attach(restaurant);
                     restaurantDb.Restaurants.Remove(restaurant);
                     restaurantDb.SaveChanges();
+
                 }
-            } 
+            }
         }
     }
 }

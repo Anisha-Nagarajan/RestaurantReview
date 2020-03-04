@@ -57,7 +57,7 @@ namespace RestaurantEF.Controllers
             restaurant.Name = restaurantVm.Name;
             restaurant.Description = restaurantVm.Description;
             RestaurantBusinessLogic.UpdateRestaurant(restaurant);
-         //   TempData["Message"] = "Updated Succesfully";
+            //TempData["Message"] = "Updated Succesfully";
             return RedirectToAction("Index");
 
         }
