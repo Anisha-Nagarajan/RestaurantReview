@@ -2,6 +2,7 @@
 using System.Web.Mvc;
 using RestaurantEF.ViewModels;
 using RestaurantBL;
+using System;
 
 namespace RestaurantEF.Controllers
 {
@@ -55,6 +56,7 @@ namespace RestaurantEF.Controllers
                 customer.City = customerVm.City.ToString();
                 customer.PhoneNumber = customerVm.PhoneNumber;
                 customer.Role = customerVm.Role;
+                customer.CreatedTime = DateTime.Now;
                 CustomerBusinessLogic.SignUpData(customer);
              
                  return RedirectToAction("Login");

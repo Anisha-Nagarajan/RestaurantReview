@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System;
+using System.ComponentModel.DataAnnotations;
 
 namespace RestaurantEntity
 {
@@ -16,5 +17,30 @@ namespace RestaurantEntity
         [Required(ErrorMessage = "Description is Required. It cannot be empty")]
         [RegularExpression(@"[a-zA-Z0-9\s]*$", ErrorMessage = "Only Alphabets,Numbers and Spaces allowed.")]
         public string Description { get; set; }
+
+        public string City { get; set; }
+
+        public string Alcohol { get; set; }
+
+        public string Services { get; set; }
+
+        public string Cuisines { get; set; }
+
+        public string WorkingDays { get; set; }
+
+        [DataType(DataType.Time)]
+        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:HH:mm}")]
+        public DateTime OpeningTime { get; set; }
+
+        [DataType(DataType.Time)]
+        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:HH:mm}")]
+        public DateTime ClosingTime { get; set; }
+
+        public string Email { get; set; }
+
+        public string RestaurantWebsite { get; set; }
+
+        public DateTime CreatedTime { get; set; }
+
     }
 }
