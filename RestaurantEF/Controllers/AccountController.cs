@@ -24,8 +24,7 @@ namespace RestaurantEF.Controllers
         {
             Customer customer = new Customer();
             customer.Name = customerVm.Name;
-            customer.Password = customerVm.Password;
-          
+            customer.Password = CustomerBusinessLogic.Encryptpass(customerVm.Password);           
             string userRole = CustomerBusinessLogic.LoginData(customer);
            
                 if (userRole.Equals("Customer"))
@@ -41,14 +40,15 @@ namespace RestaurantEF.Controllers
         }
         [HttpPost]
         [HandleError(View="Error.cshtml")]
+        [ValidateAntiForgeryToken]
         public ActionResult SignUp(CustomerViewModel customerVm)
         {
             if (ModelState.IsValid)
             {
                 Customer customer = new Customer();
-                customer.Id = customerVm.Id;
+                customer.CustomerId = customerVm.CustomerId;
                 customer.Name = customerVm.Name;
-                customer.Password = customerVm.Password;
+                customer.Password = CustomerBusinessLogic.Encryptpass(customerVm.Password);
                 //customer.ConfirmPassword = customerVm.ConfirmPassword;
                 customer.Email = customerVm.Email;
                 customer.Gender = customerVm.Gender;

@@ -5,10 +5,10 @@ using RestaurantEntity;
 
 namespace RestaurantDAL
 {
-   public class CustomerRepository
+   public class CustomerRepository : ICustomerRepository
     {
        
-        public static IEnumerable<Customer> CreateCustomerDb()
+        public  IEnumerable<Customer> CreateCustomerDb()
         {
             IEnumerable<Customer> customerDetails;
             using (var restaurantDb = new RestaurantDbContext())
@@ -17,7 +17,8 @@ namespace RestaurantDAL
             }
             return customerDetails;
         }
-        public static void AddCustomer(Customer customer)
+
+        public void AddCustomer(Customer customer)
         {
             using (var restaurantDb = new RestaurantDbContext())
             {
@@ -26,7 +27,7 @@ namespace RestaurantDAL
             }
         }
      
-        public static string CheckLogin(Customer customer)
+        public string CheckLogin(Customer customer)
         {
             // bool loginStatus = false;
             string userRole = "";

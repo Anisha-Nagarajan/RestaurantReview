@@ -7,9 +7,19 @@
 <ul>
     @foreach (RestaurantEntity.Restaurant restaurant in ViewBag.restaurants)
     {
-        <li>@restaurant.Id</li>
+        <li>@restaurant.RestaurantId</li>
         <li>@restaurant.Name</li>
         <li>@restaurant.Description</li>
+        <li>@restaurant.City</li>
+        <li>@restaurant.Alcohol</li>
+        <li>@restaurant.Services</li>
+        <li>@restaurant.Cuisine</li>
+        <li>@restaurant.WorkingDays</li>
+        <li>@restaurant.OpeningTime</li>
+        <li>@restaurant.ClosingTime</li>
+        <li>@restaurant.Email</li>
+        <li>@restaurant.RestaurantWebsite</li>
+        <li>@restaurant.PhoneNumber</li>
     }
 </ul>
 <h2>
@@ -20,18 +30,58 @@
         <td>Restaurant Id</td>
         <td>Restaurant Name</td>
         <td>Restaurant Description</td>
+        <td>Restaurant City</td>
+        <td>Alcohol Services</td>
+        <td>All Services</td>
+        <td>Cuisine</td>
+        <td>Working Days</td>
+        <td>Opening Time</td>
+        <td>Closing Time</td>
+        <td>Email</td>
+        <td>Restaurant Website</td>
+        <td>Phone Number</td>
     </tr>
     @foreach (RestaurantEntity.Restaurant restaurant in (List<RestaurantEntity.Restaurant>)ViewData["Restaurants"])
     {
         <tr>
             <td>
-                @restaurant.Id
+                @restaurant.RestaurantId
             </td>
             <td>
                 @restaurant.Name
             </td>
             <td>
                 @restaurant.Description
+            </td>
+            <td>
+                @restaurant.City
+            </td>
+            <td>
+                @restaurant.Alcohol
+            </td>
+            <td>
+                @restaurant.Services
+            </td>
+            <td>
+                @restaurant.Cuisine
+            </td>
+            <td>
+                @restaurant.WorkingDays
+            </td>
+            <td>
+                @restaurant.OpeningTime
+            </td>
+            <td>
+                @restaurant.ClosingTime
+            </td>
+            <td>
+                @restaurant.Email
+            </td>
+            <td>
+                @restaurant.RestaurantWebsite
+            </td>
+            <td>
+                @restaurant.PhoneNumber
             </td>
         </tr>
 
@@ -50,7 +100,7 @@
     {
         <tr>
             <td>
-                @restaurant.Id
+                @restaurant.RestaurantId
             </td>
             <td>
                 @restaurant.Name

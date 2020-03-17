@@ -8,6 +8,7 @@
 
 @using (Html.BeginForm("AddFeedback", "CustomerFeedback", FormMethod.Post))
 {
+    @Html.AntiForgeryToken()
     <table>
         <tr>
             <td>

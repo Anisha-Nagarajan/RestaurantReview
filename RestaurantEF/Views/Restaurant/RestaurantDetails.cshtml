@@ -12,12 +12,22 @@
         <th>Restaurant Id</th>
         <th>Restaurant Name</th>
         <th>Restaurant Description</th>
+        <th>City</th>
+        <th>Alcohol Services</th>
+        <th>Other Services</th>
+        <th>Cuisine</th>
+        <th>Working Days</th>
+        <th>Opening Time</th>
+        <th>Closing Time</th>
+        <th>Email</th>
+        <th>Restaurant Website</th>
+        <th>Phone Number</th>
     </tr>
     @foreach (var restaurant in Model)
     {
         <tr>
             <td> 
-                @restaurant.Id
+                @restaurant.RestaurantId
             </td>
             <td>
                 @restaurant.Name
@@ -26,8 +36,38 @@
                 @restaurant.Description
             </td>
             <td>
-                @Html.ActionLink("Edit", "Edit", new { id = restaurant.Id })
-                @Html.ActionLink("Delete", "Delete", new { id = restaurant.Id })
+                @restaurant.City
+            </td>
+            <td>
+                @restaurant.Alcohol
+            </td>
+            <td>
+                @restaurant.Services
+            </td>
+            <td>
+                @restaurant.Cuisine
+            </td>
+            <td>
+                @restaurant.WorkingDays
+            </td>
+            <td>
+                @restaurant.OpeningTime
+            </td>
+            <td>
+                @restaurant.ClosingTime
+            </td>
+            <td>
+                @restaurant.Email
+            </td>
+            <td>
+                @restaurant.RestaurantWebsite
+            </td>
+            <td>
+                @restaurant.PhoneNumber
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = restaurant.RestaurantId })
+                @Html.ActionLink("Delete", "Delete", new { id = restaurant.RestaurantId }, new { onclick = "return confirm('Are sure want to delete?');" })
 
             </td>
         </tr>

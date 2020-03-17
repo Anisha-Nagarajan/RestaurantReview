@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using RestaurantEntity;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace RestaurantEF.ViewModels
@@ -17,7 +18,7 @@ namespace RestaurantEF.ViewModels
         }
        
         [DatabaseGenerated(DatabaseGeneratedOption.Identity),Key()] 
-        public int Id { get; set; }
+        public int CustomerId { get; set; }
         [Required(ErrorMessage = "Name is Required. It cannot be empty")]
         [RegularExpression(@"[a-zA-Z0-9\s]*$", ErrorMessage = "Only Alphabets,Numbers and Spaces allowed.")]
         [StringLength(30, ErrorMessage = "The Name must contain a maximum of 30 characters", MinimumLength = 4)]
@@ -59,5 +60,9 @@ namespace RestaurantEF.ViewModels
 
         [Required(ErrorMessage = "Role is Required. It cannot be empty")]
         public string Role { get; set; }
+
+        public int? RestaurantId { get; set; }
+        [ForeignKey("RestaurantId")]
+        public virtual Restaurant Restautant { get; set; }
     }
 }

@@ -6,17 +6,28 @@ namespace RestaurantBL
     public class CustomerBusinessLogic
     {
 
-        public CustomerRepository customerRepository = new CustomerRepository();
+        public static CustomerRepository customerRepository = new CustomerRepository();
         public static string LoginData(Customer customer)
         {
-
-            string userRole = CustomerRepository.CheckLogin(customer);
+           // CustomerRepository customerRepository = new CustomerRepository();
+            string userRole = customerRepository.CheckLogin(customer);
 
             return userRole;
         }
         public static void SignUpData(Customer customer)
         {
-            CustomerRepository.AddCustomer(customer);
+           // CustomerRepository customerRepository = new CustomerRepository();
+         customerRepository.AddCustomer(customer);
+        }
+        public static string Encryptpass(string password)
+        {
+          string encryptedPassword=Security.Encryptpass(password);
+           return encryptedPassword;
+        }
+        public static string Decryptpass(string encryptedPassword)
+        {
+           string decryptedPassword= Security.Encryptpass(encryptedPassword);
+           return decryptedPassword;
         }
     }
 }

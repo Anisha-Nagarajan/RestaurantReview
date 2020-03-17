@@ -8,6 +8,7 @@
 
 @using (Html.BeginForm("SignUp", "Account", FormMethod.Post))
 {
+    @Html.AntiForgeryToken()
     <table>
         @*<tr>
             <td>
@@ -98,7 +99,7 @@
             <td>
                 @Html.RadioButtonFor(Model => Model.Role, "Restaurant Owner")Restaurant Owner
                 @Html.RadioButtonFor(Model => Model.Role, "Customer")Customer
-                @Html.ValidationMessageFor(model => model.Role, "", new { @style = "color:red" })
+                @Html.ValidationMessageFor(model => model.Role, " ", new { @style = "color:red" })
             </td>
         </tr>
         <tr>

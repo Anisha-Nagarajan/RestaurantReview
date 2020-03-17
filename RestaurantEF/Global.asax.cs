@@ -2,7 +2,7 @@
 using System.Data.Entity;
 using System.Web.Mvc;
 using System.Web.Routing;
-
+using System.Web.Optimization;
 namespace RestaurantEF
 {
     public class MvcApplication : System.Web.HttpApplication
@@ -11,8 +11,10 @@ namespace RestaurantEF
         {
             AreaRegistration.RegisterAllAreas();
             RouteConfig.RegisterRoutes(RouteTable.Routes);
-            Database.SetInitializer<RestaurantDbContext>(new DropCreateDatabaseIfModelChanges<RestaurantDbContext>());
+            BundleConfig.RegisterBundles(BundleTable.Bundles);
+            Database.SetInitializer(new DropCreateDatabaseIfModelChanges<RestaurantDbContext>());
          //   Database.SetInitializer<RestaurantDbContext>(null);
         }
     }
 }
+ 

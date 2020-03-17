@@ -7,14 +7,15 @@
 <h2>Edit Restaurant</h2>
 @using (Html.BeginForm("Update", "Restaurant", FormMethod.Post))
 {
+    @Html.AntiForgeryToken()
     <table>
         <tr>
             <td>
-                @Html.DisplayNameFor(Model => Model.Id)
+                @Html.DisplayNameFor(Model => Model.RestaurantId)
             </td>
             <td>
-                @Html.TextBoxFor(Model => Model.Id)
-                @Html.ValidationMessageFor(model => model.Id, "", new { @style = "color:red" })
+                @Html.TextBoxFor(Model => Model.RestaurantId)
+                @Html.ValidationMessageFor(model => model.RestaurantId, "", new { @style = "color:red" })
             </td>
         </tr>
         <tr>
@@ -33,6 +34,104 @@
             <td>
                 @Html.TextBoxFor(Model => Model.Description)
                 @Html.ValidationMessageFor(model => model.Description, "", new { @style = "color:red" })
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.LabelFor(Model => Model.City)
+            </td>
+            <td>
+                @Html.EditorFor(Model => Model.City, "Select City")
+                @Html.ValidationMessageFor(model => model.City, "", new { @style = "color:red" })
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.LabelFor(Model => Model.Alcohol)
+            </td>
+            <td>
+                @Html.RadioButtonFor(Model => Model.Alcohol, "Alcohol")Serves Alcohol
+                @Html.RadioButtonFor(Model => Model.Alcohol, "NoAlcohol")Doesn't serve Alcohol
+                @Html.ValidationMessageFor(model => model.Alcohol, "", new { @style = "color:red" })
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.LabelFor(Model => Model.Services)
+            </td>
+            <td>
+                @Html.TextBoxFor(Model => Model.Services)
+                @Html.ValidationMessageFor(model => model.Services, "", new { @style = "color:red" })
+                @*@Html.RadioButtonFor(Model => Model.Services, "Breakfast")Breakfast
+                @Html.RadioButtonFor(Model => Model.Services, "Lunch")Lunch
+                @Html.RadioButtonFor(Model => Model.Services, "Dinner")Dinner
+                @Html.RadioButtonFor(Model => Model.Services, "Cafe")Cafe
+                @Html.RadioButtonFor(Model => Model.Alcohol, "Nightlife")Nightlife
+                @Html.ValidationMessageFor(model => model.Services, "", new { @style = "color:red" })*@
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.LabelFor(Model => Model.Cuisine)
+            </td>
+            <td>
+                @Html.EditorFor(Model => Model.Cuisine, "Select Cuisine")
+                @Html.ValidationMessageFor(model => model.Cuisine, "", new { @style = "color:red" })
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.LabelFor(Model => Model.WorkingDays)
+            </td>
+            <td>
+                @Html.TextBoxFor(Model => Model.WorkingDays)
+                @Html.ValidationMessageFor(model => model.WorkingDays, "", new { @style = "color:red" })
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                @Html.LabelFor(Model => Model.OpeningTime)
+            </td>
+            <td>
+                @Html.TextBoxFor(Model => Model.OpeningTime)
+                @Html.ValidationMessageFor(model => model.OpeningTime, "", new { @style = "color:red" })
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.LabelFor(Model => Model.ClosingTime)
+            </td>
+            <td>
+                @Html.TextBoxFor(Model => Model.ClosingTime)
+                @Html.ValidationMessageFor(model => model.ClosingTime, "", new { @style = "color:red" })
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.LabelFor(Model => Model.Email)
+            </td>
+            <td>
+                @Html.TextBoxFor(Model => Model.Email)
+                @Html.ValidationMessageFor(model => model.Email, "", new { @style = "color:red" })
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.LabelFor(Model => Model.RestaurantWebsite)
+            </td>
+            <td>
+                @Html.TextBoxFor(Model => Model.RestaurantWebsite)
+                @Html.ValidationMessageFor(model => model.RestaurantWebsite, "", new { @style = "color:red" })
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.DisplayNameFor(Model => Model.PhoneNumber)
+            </td>
+            <td>
+                @Html.TextBoxFor(Model => Model.PhoneNumber)
+                @Html.ValidationMessageFor(model => model.PhoneNumber, "", new { @style = "color:red" })
             </td>
         </tr>
         <tr>

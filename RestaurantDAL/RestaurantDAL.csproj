@@ -42,6 +42,7 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Activities" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -52,32 +53,22 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Security.cs" />
     <Compile Include="FeedbackRepository.cs" />
     <Compile Include="CustomerRepository.cs" />
-    <Compile Include="Migrations\202003030829596_InitialCreate.cs" />
-    <Compile Include="Migrations\202003030829596_InitialCreate.designer.cs">
-      <DependentUpon>202003030829596_InitialCreate.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202003030910443_Restaurant.cs" />
-    <Compile Include="Migrations\202003030910443_Restaurant.designer.cs">
-      <DependentUpon>202003030910443_Restaurant.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202003030920497_dropdown.cs" />
-    <Compile Include="Migrations\202003030920497_dropdown.designer.cs">
-      <DependentUpon>202003030920497_dropdown.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202003031127496_login.cs" />
-    <Compile Include="Migrations\202003031127496_login.designer.cs">
-      <DependentUpon>202003031127496_login.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="ICustomerRepository.cs" />
+    <Compile Include="IRestaurantRepository.cs" />
     <Compile Include="RestaurantRepository.cs" />
     <Compile Include="RestaurantDbContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="fonts\glyphicons-halflings-regular.eot" />
+    <None Include="fonts\glyphicons-halflings-regular.ttf" />
+    <None Include="fonts\glyphicons-halflings-regular.woff" />
     <None Include="packages.config" />
+    <None Include="Scripts\jquery-1.9.0.min.map" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\RestaurantEntity\RestaurantEntity.csproj">
@@ -86,21 +77,18 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\bootstrap-lumen.css" />
+    <Content Include="Content\bootstrap-theme.css" />
+    <Content Include="Content\bootstrap-theme.min.css" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Scripts\jquery-1.9.0.intellisense.js" />
+    <Content Include="Scripts\jquery-1.9.0.js" />
+    <Content Include="Scripts\jquery-1.9.0.min.js" />
     <Content Include="Site.css" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Migrations\202003030829596_InitialCreate.resx">
-      <DependentUpon>202003030829596_InitialCreate.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202003030910443_Restaurant.resx">
-      <DependentUpon>202003030910443_Restaurant.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202003030920497_dropdown.resx">
-      <DependentUpon>202003030920497_dropdown.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202003031127496_login.resx">
-      <DependentUpon>202003031127496_login.cs</DependentUpon>
-    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

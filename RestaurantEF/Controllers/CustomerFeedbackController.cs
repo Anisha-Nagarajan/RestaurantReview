@@ -17,6 +17,7 @@ namespace RestaurantEF.Controllers
             return View();
         }
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult AddFeedback(CustomerFeedbackViewModel feedbackVm)
         {
             if (ModelState.IsValid)
